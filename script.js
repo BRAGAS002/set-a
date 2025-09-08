@@ -57,6 +57,7 @@ document.querySelectorAll('.btn.btn-ghost').forEach(btn => {
 (function(){
   const track = document.querySelector('.doctors-grid');
   if (!track) return;
+  const dotsWrap = document.getElementById('doctor-dots');
   let isDown = false;
   let startX = 0;
   let scrollStart = 0;
@@ -82,6 +83,62 @@ document.querySelectorAll('.btn.btn-ghost').forEach(btn => {
   track.addEventListener('touchstart', (e) => start(e.touches[0].pageX), { passive: true });
   track.addEventListener('touchmove', (e) => move(e.touches[0].pageX), { passive: true });
   window.addEventListener('touchend', end);
+
+  // Pagination dots based on pages (number of full views)
+  function pageSize(){
+    const first = track.querySelector('.doctor-card');
+    if (!first) return 1;
+    const style = getComputedStyle(track);
+    const gap = parseInt(style.columnGap || style.gap || '0', 10) || 0;
+    const container = track.parentElement.clientWidth;
+    const card = first.offsetWidth;
+    const perView = Math.max(1, Math.floor((container + gap) / (card + gap)));
+    return perView;
+  }
+  function pageCount(){
+    const total = track.querySelectorAll('.doctor-card').length;
+    return Math.max(1, Math.ceil(total / pageSize()));
+  }
+  function activeIndex(){
+    const p = pageSize();
+    const style = getComputedStyle(track);
+    const gap = parseInt(style.columnGap || style.gap || '0', 10) || 0;
+    const first = track.querySelector('.doctor-card');
+    const step = (first ? first.offsetWidth : 0) + gap;
+    const index = Math.round(track.scrollLeft / (p * step));
+    return index;
+  }
+  function buildDots(){
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    const pages = pageCount();
+    for (let i=0;i<pages;i++){
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (i===0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    }
+  }
+  function updateDots(){
+    if (!dotsWrap) return;
+    const i = activeIndex();
+    dotsWrap.querySelectorAll('.dot').forEach((d,idx)=>{
+      d.classList.toggle('active', idx===i);
+    });
+  }
+  function goTo(page){
+    const p = pageSize();
+    const style = getComputedStyle(track);
+    const gap = parseInt(style.columnGap || style.gap || '0', 10) || 0;
+    const first = track.querySelector('.doctor-card');
+    const step = (first ? first.offsetWidth : 0) + gap;
+    track.scrollTo({ left: page * p * step, behavior: 'smooth' });
+  }
+  track.addEventListener('scroll', () => updateDots());
+  window.addEventListener('resize', () => { buildDots(); updateDots(); });
+  // init
+  buildDots();
+  updateDots();
 })();
 
 // Testimonials arrows keep stepper behavior

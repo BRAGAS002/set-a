@@ -55,7 +55,7 @@ img{max-width:100%;display:block}
 
 .main-nav ul{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
 .main-nav{margin-left:auto}
-.main-nav a{text-decoration:none;color:#6b7280;font-weight:500;font-size:14px;letter-spacing:.02em}
+.main-nav a{text-decoration:none;color:#6b7280;font-weight:600;font-size:14px;letter-spacing:.01em}
 .main-nav a:hover{color:var(--primary)}
 
 .header-actions{display:flex;align-items:center;gap:12px}
@@ -168,6 +168,11 @@ img{max-width:100%;display:block}
 .doctor-actions{display:flex;gap:10px}
 .doctor-actions .btn.small{padding:10px 14px}
 .doctor-card:hover{box-shadow:0 20px 50px rgba(22,39,82,.12)}
+
+/* dots (shared) */
+.dots{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.dots .dot{width:10px;height:10px;border-radius:50%;background:#f6e9d6;opacity:.9;cursor:pointer;transition:transform .2s ease, background .2s ease}
+.dots .dot.active{background:var(--primary);opacity:1;transform:scale(1.05)}
 
 /* ------------------------------
    Testimonials (What Clients say)
