@@ -1,0 +1,238 @@
+/* ------------------------------
+   Base
+------------------------------ */
+:root{
+  --bg: #ffffff;
+  --text: #0b1220;
+  --muted: #6b7280;
+  --primary: #1f7cff;
+  --primary-600:#1667d8;
+  --accent: #1fb6ff;
+  --border: #eef2f7;
+  --card: #ffffff;
+  --shade: #f6f8fb;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+img{max-width:100%;display:block}
+.container{width:min(1120px, 92%);margin-inline:auto}
+.section{padding:64px 0}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--primary);font-weight:700}
+
+/* ------------------------------
+   Newsletter CTA
+------------------------------ */
+.newsletter-cta{background:#ffffff;padding-top:0}
+.newsletter-card{background:var(--primary);border-radius:18px;color:#fff;padding:36px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nl-eyebrow{opacity:.85;margin:0 0 6px}
+.nl-title{margin:.1rem 0 .6rem;font-size:32px;line-height:1.2}
+.nl-text{opacity:.9;max-width:62ch;margin:0}
+.nl-btn{border-color:#cfe4ff;color:#fff}
+.nl-btn:hover{border-color:#fff}
+.nl-right .nl-btn{padding:12px 22px;border-radius:10px}
+
+@media (max-width: 800px){
+  .newsletter-card{flex-direction:column;align-items:flex-start}
+}
+/* ------------------------------
+   Header
+------------------------------ */
+.site-header{position:sticky;top:0;background:#fff;z-index:50;border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.brand-mark{width:20px;height:20px;border-radius:50%;background:var(--primary)}
+.brand-name{font-weight:700}
+.brand-name .dot{color:var(--primary)}
+/* Brand logo image */
+.brand-logo{width:36px;height:36px;border-radius:6px;object-fit:contain;display:block;background:#fff}
+
+.main-nav ul{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
+.main-nav{margin-left:auto}
+.main-nav a{text-decoration:none;color:#6b7280;font-weight:500;font-size:14px;letter-spacing:.02em}
+.main-nav a:hover{color:var(--primary)}
+
+.header-actions{display:flex;align-items:center;gap:12px}
+.link{color:#4b5563;text-decoration:none}
+.link:hover{color:var(--primary)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:12px 18px;font-weight:600;text-decoration:none}
+.btn.small{padding:8px 12px;border-radius:8px}
+.btn-primary{background:var(--primary);color:white;box-shadow:0 8px 20px rgba(31,124,255,.25)}
+.btn-primary:hover{background:var(--primary-600)}
+.btn-ghost{border:1px solid var(--border);background:#fff;color:#111}
+.btn-ghost:hover{border-color:#dbe3ee}
+/* Navbar CTA glow + pill */
+.pill{border-radius:9999px}
+.cta-glow{box-shadow:0 30px 60px rgba(31,124,255,.45), 0 12px 24px rgba(31,124,255,.25)}
+
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0}
+.nav-toggle span{width:24px;height:2px;background:#111;border-radius:2px;display:block}
+
+/* ------------------------------
+   Banner (replicated design)
+------------------------------ */
+.banner{position:relative;padding:80px 0;background:#ffffff;color:inherit;overflow:visible}
+.banner::after{content:"";position:absolute;inset:0 0 0 auto;width:30%;background:linear-gradient(180deg,#eaf3ff 0%, #d0e8ff 100%);border-radius:0;z-index:0}
+.banner-inner{position:relative;z-index:1;display:grid;grid-template-columns: 1.05fr .95fr;align-items:center;gap:44px}
+.banner-copy h1{font-size:68px;line-height:1.06;margin:.2rem 0 1.1rem;font-weight:800;letter-spacing:.1px}
+.banner-copy .subtitle{color:var(--muted);max-width:52ch;font-size:15px}
+.banner-copy .actions{display:flex;gap:14px;margin:28px 0}
+.banner-mini{display:flex;align-items:center;gap:12px;color:#6b7280}
+.banner-mini .divider{width:32px;height:2px;background:#dbe3ee;display:inline-block}
+.banner-mini .dot{width:6px;height:6px;border-radius:50%;background:#c3c9d4;display:inline-block}
+
+/* meet-with label */
+.eyebrow.meet{display:flex;align-items:center;gap:10px;color:#6b7280;font-weight:600;font-size:12px;letter-spacing:.08em}
+.eyebrow.meet .line{display:inline-block;width:60px;height:2px;background:#dbe3ee}
+
+/* buttons */
+.btn-xl{padding:14px 22px;border-radius:12px;font-size:1rem}
+.shadow-lift{box-shadow:0 30px 50px rgba(31,124,255,.45), 0 14px 22px rgba(31,124,255,.25)}
+.btn-ghost.dark{border:1px solid var(--border);background:transparent;color:#111}
+.btn-ghost.dark:hover{border-color:#dbe3ee;color:#111}
+
+.banner-visual{position:relative}
+.hero-img{position:relative;z-index:2;width:100%;max-width:100%;margin-left:auto;transform:none;filter:drop-shadow(0 20px 40px rgba(0,0,0,.20))}
+.banner-visual .blob{display:none}
+.banner-visual .bg{filter:none;opacity:1}
+
+/* ------------------------------
+   Stats
+------------------------------ */
+.stats{background:var(--shade)}
+.stats-header{text-align:center;margin-bottom:20px}
+.stats-header h2{font-size:28px;font-weight:700;color:#4b5563;line-height:1.35}
+.stats-header .subtitle{color:#6b7280;margin-top:8px;font-size:14px}
+.stats-grid{display:grid;grid-template-columns: repeat(4, 1fr);gap:0;margin-top:28px}
+.stat{padding:22px 10px;text-align:center}
+.stat .value{font-size:32px;font-weight:800;color:#0b1220;letter-spacing:.2px}
+.stat .label{color:#7a8191;font-weight:500;font-size:13px}
+.stats-grid .stat:not(:last-child){position:relative}
+.stats-grid .stat:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:36px;background:#e4eaf3}
+
+/* ------------------------------
+   About
+------------------------------ */
+.about-inner{display:grid;grid-template-columns: 1fr 1.05fr;gap:56px;align-items:center}
+.about-art{position:relative}
+.bg-tile{position:absolute;left:-24px;top:-24px;width:160px;height:120px;background-image:radial-gradient(#e6eefc 1.5px, transparent 1.5px);background-size:12px 12px}
+.about-img{border-radius:16px;box-shadow:0 16px 50px rgba(15,47,103,.15)}
+.about-copy h2{margin:.4rem 0 1rem;font-size:24px;font-weight:700}
+.about-copy p{color:#4b5563;font-size:15px}
+.checklist{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.checklist li{position:relative;padding-left:28px}
+.checklist li::before{content:"";position:absolute;left:0;top:.35em;width:18px;height:18px;border-radius:50%;background:conic-gradient(#2ecc71, #2ecc71) content-box;border:2px solid #bce7cd;padding:3px}
+.about-cta{display:flex;gap:12px;margin-top:18px}
+
+/* ------------------------------
+   How it works
+------------------------------ */
+.section-head{text-align:center;margin-bottom:24px}
+.section-head h2{margin:.5rem 0 0}
+.how{background:#ffffff}
+.how .steps{position:relative;display:grid;grid-template-columns: repeat(4, 1fr);gap:22px;margin-top:12px}
+.how .steps::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:#eceff5}
+.how .step-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px;box-shadow:0 10px 24px rgba(22,39,82,.05)}
+.how .step-card h4{margin:.2rem 0 .4rem;font-weight:800;color:#111;font-size:18px}
+.how .step-card p{color:#6b7280;font-size:14px}
+.step-num{font-size:56px;font-weight:800;color:#cfd7e6;line-height:1;display:block;margin-bottom:8px}
+/* Glow behind the first step */
+.how .step-card:first-child{position:relative}
+.how .step-card:first-child::before{content:"";position:absolute;z-index:-1;inset:-26px;border-radius:18px;background:radial-gradient(60% 60% at 40% 35%, rgba(31,124,255,.35), rgba(31,124,255,0) 70%);filter:blur(14px)}
+.text-link{color:var(--primary);text-decoration:none;font-weight:600}
+.text-link:hover{color:var(--primary-600)}
+
+/* ------------------------------
+   Our Best Doctors
+------------------------------ */
+.doctors{background:#ffffff}
+.doctors-grid{display:flex;gap:24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.doctors-grid::-webkit-scrollbar{height:8px}
+.doctors-grid::-webkit-scrollbar-thumb{background:#e1e7f3;border-radius:9999px}
+.doctor-card{position:relative;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(22,39,82,.08);flex:0 0 calc(33.333% - 16px)}
+.doctor-card{scroll-snap-align:start}
+.doctor-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg, var(--primary), #4da0ff);opacity:.9}
+.doctor-img{width:100%;height:260px;object-fit:cover;display:block}
+.doctor-info{padding:18px}
+.name-line{display:flex;align-items:center;gap:10px;margin:.2rem 0 .4rem}
+.doctor-info h4{margin:0;font-size:18px;font-weight:800;color:#0b1220}
+.specialty{color:#6b7280;font-size:14px}
+.stars{color:#f6b400;letter-spacing:2px;font-size:.9rem;margin:.3rem 0 .6rem}
+.doctor-info .desc{color:#4b5563;font-size:14px;margin-bottom:12px}
+.doctor-actions{display:flex;gap:10px}
+.doctor-actions .btn.small{padding:10px 14px}
+.doctor-card:hover{box-shadow:0 20px 50px rgba(22,39,82,.12)}
+
+/* ------------------------------
+   Testimonials (What Clients say)
+------------------------------ */
+.testimonials{background:#ffffff}
+.testimonials-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.testimonials-head .titles{flex:1;text-align:center}
+.testimonials-head h2{margin:0;font-size:28px;line-height:1.3;color:#111}
+.nav-arrows{display:flex;align-items:center;gap:12px}
+.nav-arrows .arrow{width:40px;height:40px;border-radius:50%;border:1px solid #eee;background:#f7f7f9;color:#111;cursor:pointer}
+.nav-arrows .arrow.next{background:#eef5ff;color:#1160e6;border-color:#d9e7ff}
+.t-grid{display:flex;gap:22px;margin-top:12px;overflow:hidden;will-change:transform;transition:transform .4s ease}
+.t-card{flex:0 0 calc(33.333% - 15px)}
+.t-card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 20px 50px rgba(22,39,82,.06);padding:18px}
+.t-title{margin:0 0 8px;font-weight:700;color:#111;font-size:16px}
+.t-body{color:#6b7280;margin:0 0 10px;font-size:14px}
+.t-stars{color:#f6b400;margin:0 0 8px;letter-spacing:2px;font-size:14px}
+.t-author{color:#6b7280;font-weight:600;font-size:14px}
+
+/* ------------------------------
+   Footer
+------------------------------ */
+.site-footer{border-top:1px solid var(--border);padding:28px 0;color:#6b7280}
+.site-footer.white{background:#fff;color:#111;border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns: 1.4fr 1fr 1fr 1fr;gap:28px;padding:36px 0}
+.footer-col .footer-head{font-weight:700;margin:0 0 14px;color:#111;letter-spacing:.02em}
+.footer-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.footer-list a{color:#6b7280;text-decoration:none}
+.footer-list a:hover{color:var(--primary)}
+.footer-col.company .brand-line{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer-desc{color:#6b7280;max-width:40ch}
+.socials{display:flex;gap:8px;margin-top:12px}
+.social{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#f3f6fb;color:#111;font-weight:700;text-decoration:none}
+.social:hover{background:#e6eefc}
+.footer-bar{background:var(--primary);color:#fff;padding:10px 0;text-align:center}
+.footer-bar p{margin:0;font-size:.9rem}
+
+/* ------------------------------
+   Responsive
+------------------------------ */
+@media (max-width: 1024px){
+  .banner-inner{grid-template-columns:1fr}
+  .hero-img{width:78%;margin-inline:auto}
+  .banner::after{display:none}
+  .banner-visual .blob{inset:-6% -6% -6% -6%}
+  .about-inner{grid-template-columns:1fr}
+}
+@media (max-width: 800px){
+  .main-nav{display:none}
+  .nav-toggle{display:flex}
+  .header-actions{display:none}
+  .steps{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns: repeat(2, 1fr)}
+  .doctor-card{flex-basis: calc(50% - 12px)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 520px){
+  .banner-copy h1{font-size:40px}
+  .stats-grid{grid-template-columns:1fr}
+  .doctor-card{flex-basis:100%}
+  .t-card{flex-basis:100%}
+
+/* doctors slider dots */
+.dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.dots .dot{width:8px;height:8px;border-radius:50%;background:#dbe3ee}
+.dots .dot.active{background:var(--primary)}
+  .footer-top{grid-template-columns:1fr}
+}
